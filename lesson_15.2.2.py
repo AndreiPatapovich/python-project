@@ -1,20 +1,23 @@
 nums_list = []
 
-amount_of_numbers = int(input('Кол-во чисел в списке: '))
+amount_of_dogs = int(input('Кол-во собак в соревнованиях: '))
 
-for number in range(amount_of_numbers):
-    print('Введите', number + 1, end = '')
-    num = int(input(' число: '))
+for dog in range(amount_of_dogs):
+    print(dog + 1 ,'-я собака -', end = '')
+    num = int(input(' кол-во очков: '))
 
     nums_list.append(num)
 
-k_dell = int(input('Введите делитель: '))
-count_ind = -1
-summ = 0
-for i in nums_list:
-    count_ind += 1
-    if i % k_dell == 0:
-        summ += count_ind
-        print('Индекс числа', i ,':', count_ind)
+print(f'Первоначальный список {nums_list}')
+first_dog = nums_list[0]
+last_dog = nums_list[amount_of_dogs - 1]
 
-print('Сумма индексов: ', summ)
+for dog in range(amount_of_dogs ):
+    if dog == 0:
+        last_dog = nums_list[0]
+    if dog == amount_of_dogs - 1:
+        first_dog = nums_list[amount_of_dogs - 1]
+
+nums_list[0] = first_dog
+nums_list[amount_of_dogs -1] = last_dog
+print(f'Конечный список {nums_list}')

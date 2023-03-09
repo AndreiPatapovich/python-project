@@ -1,18 +1,29 @@
 line = input('Введите строку: ')
+number_symb = int(input('Введите номер символа: '))
+
 line_list = []
-corrected_line = []
-
 line_list = list(line)
-count_symb = 0
 
+symbol = ''
+left_symbol = line_list[number_symb - 2]
+raigt_symbol = line_list[number_symb]
+
+count_symb = -1
+count = 0
 for i in line_list:
-    if i == ':':
-        i = ';'
-        count_symb += 1
-    corrected_line.append(i)
+    count_symb += 1
+    if number_symb -1 == count_symb:
+        symbol = i
 
-#print(line_list)
-print('Исправленная строка:')
-for i in corrected_line:
-    print(i, end = '')
-print('\nКол-во исправлений:', count_symb)
+for ind in line_list:
+    if ind == symbol:
+        count += 1
+
+print('Символ слева: ', left_symbol)
+print('Символ справа: ', raigt_symbol)
+
+if count == 1:
+    print(f'Таких же символов "{symbol}" больше нет в строке')
+if count == 2:
+    print(f'Есть ровно один такой же "{symbol}" символ')
+

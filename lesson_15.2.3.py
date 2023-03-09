@@ -1,29 +1,33 @@
-line = input('Введите строку: ')
-number_symb = int(input('Введите номер символа: '))
-
 line_list = []
-line_list = list(line)
+text_line = []
+index = [0, 0, 0]
 
-symbol = ''
-left_symbol = line_list[number_symb - 2]
-raigt_symbol = line_list[number_symb]
+for i in range(3):
+    print('Введите ', i + 1, 'слово: ', end = '')
+    word = input()
+    line_list.append(word)
 
-count_symb = -1
-count = 0
-for i in line_list:
-    count_symb += 1
-    if number_symb -1 == count_symb:
-        symbol = i
+text = input('Слово из текста: ')
+text_line.append(text)
 
-for ind in line_list:
-    if ind == symbol:
-        count += 1
+while text != 'end':
+    text = input('Слово из текста: ')
+    text_line.append(text)
 
-print('Символ слева: ', left_symbol)
-print('Символ справа: ', raigt_symbol)
+print('Подсчет слов из текста')
 
-if count == 1:
-    print(f'Таких же символов "{symbol}" больше нет в строке')
-if count == 2:
-    print(f'Есть ровно один такой же "{symbol}" символ')
+for ind in text_line:
+    if line_list[0] == ind:
+        index[0] += 1
+    if line_list[1] == ind:
+        index[1] += 1
+    if line_list[2] == ind:
+        index[2] += 1
+
+print(line_list)
+print(text_line)
+print(index)
+
+for i in range(3):
+    print(line_list[i], ':', index[i])
 

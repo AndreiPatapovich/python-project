@@ -1,19 +1,34 @@
-umber_of_employees = int(input('Кол-во сотрудников: '))
-salaries_list = []
-# print(f'Количество сотрудников: {umber_of_employees}')
-for i in range(umber_of_employees):
-    print('Зарплата', i + 1, 'сотрудника', end = ': ')
-    salary = int(input(''))
-    salaries_list.append(salary)
+def is_film_exist(movie, film_list):
+    for i_movie in film_list:
+        if i_movie == movie:
+            return True
+    return False
 
-print(salaries_list)
 
-for ind in salaries_list:
-    if ind == 0:
-        salaries_list.remove(ind)
-        umber_of_employees -= 1
-print(f'зарплаты: {salaries_list}')
-print(f'Осталось сотрудников: {umber_of_employees} .')
+films = ['Крепкий орешек', 'Назад в будущее', 'Таксист',
+         'Леон', 'Богемская рапсодия', 'Город грехов',
+         'Мементо', 'Отступники', 'Деревня',
+         'Проклятый остров', 'Начало', 'Матрица']
 
-print(f'Максимальная зарплата сотрудников: {max(salaries_list)}')
-print(f'Минимальная зарплата сотрудников: {min(salaries_list)}')
+my_list = []
+while True:
+
+    print(f'\nВаш текущий топ фильмов {my_list}')
+    new_film = input('Введите название фильма: ')
+    if is_film_exist(new_film, films):
+        print('Команды: добавить, вставить, удалить')
+        command = input('Введите команду: ')
+        if command == 'добавить':
+            my_list.append(new_film)
+        if command == 'вставить':
+            index = int(input('На какое место вставить? '))
+            my_list.insert(index - 1, new_film)
+        if command == 'удалить':
+            if is_film_exist(new_film, my_list):
+                 my_list.remove(new_film)
+            else:
+                print('Такого фильма нет в топе.')
+
+    else:
+        print('Такого фильма нет на сайте.')
+

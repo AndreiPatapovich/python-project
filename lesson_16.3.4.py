@@ -1,13 +1,20 @@
-quantity_sport = int(input('Сколько человек: '))
-commands = int(input('Кол-во человек в команде: '))
+while True:
 
-sport_list = []
-N = 1
-if quantity_sport % commands == 0:
-  for i in range(quantity_sport // commands):
-      sport_list.append(list(range(N, N + commands)))
-      N += commands
-  print(f'Общий список комманд: {sport_list}')
-else:
-    print(f'{quantity_sport} участников нельзя раделить на команды по {commands} человек(а).')
+    goods = [["яблоки", 50], ["апельсины", 190], ["груши", 100], ["нектарины", 200], ["бананы", 77]]
+    new_list = []
 
+    new_fruit = input('Новый фрукт: ')
+    new_list.append(new_fruit)
+
+    prace = int(input('Цена: '))
+    new_list.append(prace)
+
+    goods.append(new_list)
+    print(f'Старый ассортимент: {goods}')
+
+    for i in goods:
+        for j in i:
+            if j == i[1]:
+                j = j + j * 0.08
+                i[1] = j
+    print(f'Новый ассортимент: {goods}')

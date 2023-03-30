@@ -1,16 +1,26 @@
-# This is a sample Python script.
 
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+def is_polindrom(num_list):
+    revers_list = []
+    for i_num in range(len(num_list) - 1, -1, -1):
+        revers_list.append(num_list[i_num])
+    if num_list == revers_list:
+        return True
+    else:
+        return False
 
+nums = [1]
+new_nums = []
+answer = []
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
-
-
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+for i_nums in range(0, len(nums)):
+    for j_elem in range(i_nums, len(nums)):
+        new_nums.append(nums[j_elem])
+    if is_polindrom(new_nums):
+        for i_answer in range(0, i_nums):
+            answer.append(nums[i_answer])
+        answer.reverse()
+        break
+    new_nums = []
+print(f'Исходный список {nums}')
+print(f'Нужно добавить {len(answer)}')
+print(f'Список чисел {answer}')
